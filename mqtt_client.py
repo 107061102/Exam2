@@ -27,10 +27,13 @@ def on_message(mosq, obj, msg):
 
     info = msg.payload.decode().split(" ")
     if (info[2] == '0'):
+        print("gesture is 0")
         plt.scatter(x0, y0)
     elif (info[2] == '1'):
+        print("gesture is 1")
         plt.scatter(x1, y1)
     elif (info[2] == '2'):
+        print("gesture is 2")
         plt.scatter(x2, y2)
 
     if (info[1] == '10'):
@@ -69,4 +72,3 @@ while num != 5:
     num += 1
 # Loop forever, receiving messages
 mqttc.loop_forever()
-
