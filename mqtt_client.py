@@ -18,12 +18,12 @@ def on_connect(self, mosq, obj, rc):
     print("Connected rc: " + str(rc))
 
 def on_message(mosq, obj, msg):
-    x0 = {1, 2, 3, 4, 5, 6, 7}
-    x1 = {1, 2, 3, 4, 2, 3, 4}
-    x2 = {1, 2, 3, 4, 5, 4, 3, 2}
-    y0 = {3,3,3,3,3,3,3}
-    y1 = {1,1,1,1,2,3,4}
-    y2 = {3,2,1,2,3,4,5,4}
+    x0 = [1, 2, 3, 4, 5, 6, 7]
+    x1 = [1, 2, 3, 4, 2, 3, 4]
+    x2 = [1, 2, 3, 4, 5, 4, 3, 2]
+    y0 = [3,3,3,3,3,3,3]
+    y1 = [1,1,1,1,2,3,4]
+    y2 = [3,2,1,2,3,4,5,4]
 
     info = msg.payload.decode().split(" ")
     if (info[2] == '0'):
@@ -67,6 +67,6 @@ while num != 5:
     mqttc.loop()
     time.sleep(1.5)
     num += 1
-
 # Loop forever, receiving messages
 mqttc.loop_forever()
+
